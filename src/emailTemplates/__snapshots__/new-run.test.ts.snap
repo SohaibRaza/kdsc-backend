@@ -23,7 +23,7 @@ exports[`email-templates/new-run should return new Run Email Content 1`] = `
                     </tbody>
                 </table><br/>
                 <p>Thanks!</p>
-                <p>The bonsai team</p>
+                <p>The KDSP team</p>
             </td>
         </tr>
     </table>

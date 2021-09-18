@@ -21,10 +21,10 @@ export default {
                     </tbody>
                 </table><br/>
                 <p>Thanks!</p>
-                <p>The bonsai team</p>
+                <p>The KDSP team</p>
             </td>
         </tr>
     </table>
     </td>`,
   subject: (data: GenericObject): string => `Due: ${data.checklistName}`,
-}
+};

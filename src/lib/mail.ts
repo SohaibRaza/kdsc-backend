@@ -53,7 +53,7 @@ export class Mail {
     );
     try {
       const res = await Mail.transporter.sendMail({
-        from: opts.from || env.FROM_EMAIL || 'sohaib <support@trybonsai.com>',
+        from: opts.from || env.FROM_EMAIL || 'sohaib <support@tryKDSP.com>',
         to: opts.to,
         subject,
         html,

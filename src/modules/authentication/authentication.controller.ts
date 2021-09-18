@@ -44,7 +44,6 @@ export class AuthenticationController {
     @Body() loginDto: LoginDto,
     @Response() res,
   ): Promise<IAuthResponse> {
-    console.log("object")
     const user = await this.authenticationService.login(loginDto);
     return res.json(await Auth.formatAuthResponse(user));
   }

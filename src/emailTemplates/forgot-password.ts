@@ -4,7 +4,7 @@ export default {
         <tr>
             <td>
                 <p>Hello there!</p>
-                <p>You have requested to reset your password, to do so just click this button and set your new password for your bonsai account:</p><br/>
+                <p>You have requested to reset your password, to do so just click this button and set your new password for your account:</p><br/>
                 <table class="btn btn-primary" role="presentation" border="0" cellpadding="0" cellspacing="0">
                     <tbody>
                         <tr>
@@ -22,10 +22,10 @@ export default {
                 </table><br/>
                 <p>If you didn't request this password reset, you can safely ignore this email.</p><br/><br/>
                 <p>Thanks!</p>
-                <p>The bonsai team</p>
+                <p>The KDSP team</p>
             </td>
         </tr>
     </table>
     </td>`,
-  subject: (): string => "Reset your password",
-}
+  subject: (): string => 'Reset your password',
+};
