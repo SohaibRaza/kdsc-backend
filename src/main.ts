@@ -41,6 +41,13 @@ export default function setupSwagger(app): void {
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  app.enableCors({
+    origin: ['http://localhost:3000'],
+    methods: ['GET', 'PUT', 'POST', 'DELETE', 'PATCH'],
+    credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  });
+
   app.use(
     morgan(function (tokens, req, res) {
       return [
