@@ -44,6 +44,9 @@ export class User {
   @Prop({ select: false })
   resetPasswordToken: string;
 
+  @Prop()
+  role: 'admin' | 'patient' | 'doctor' | 'eci_staff';
+
   @Prop({
     index: true,
     sparse: true,
