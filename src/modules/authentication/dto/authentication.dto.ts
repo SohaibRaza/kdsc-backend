@@ -1,4 +1,4 @@
-import { ApiProperty } from "@nestjs/swagger"
+import { ApiProperty } from '@nestjs/swagger';
 import {
   IsNotEmpty,
   IsOptional,
@@ -6,22 +6,22 @@ import {
   MinLength,
   MaxLength,
   IsLowercase,
-} from "class-validator"
-import { TokenPayload } from "google-auth-library"
-import * as mongoose from "mongoose"
+} from 'class-validator';
+import { TokenPayload } from 'google-auth-library';
+import * as mongoose from 'mongoose';
 
 export class BaseDto {
   @IsEmail()
   @IsNotEmpty()
   @ApiProperty()
-  email: string
+  email: string;
 }
 
 export class Password {
   @IsOptional()
   @IsNotEmpty()
   @ApiProperty()
-  password: string
+  password: string;
 }
 
 export class CreateUserDto extends BaseDto {
@@ -29,53 +29,53 @@ export class CreateUserDto extends BaseDto {
   @MaxLength(20)
   @IsNotEmpty()
   @ApiProperty()
-  username: string
+  username: string;
 
   @IsOptional()
   @IsNotEmpty()
   @ApiProperty()
-  password: string
+  password: string;
 }
 
 export class SetUsernameDto {
   @ApiProperty()
-  id: mongoose.Schema.Types.ObjectId
+  id: mongoose.Schema.Types.ObjectId;
 
   @MinLength(4)
   @MaxLength(20)
   @IsNotEmpty()
   @ApiProperty()
-  newUsername: string
+  newUsername: string;
 }
 
 export class LoginDto extends BaseDto {
   @IsNotEmpty()
   @ApiProperty()
-  password: string
+  password: string;
 }
 
 export class ResetPasswordDto extends Password {
   @IsNotEmpty()
-  token: string
+  token: string;
 }
 
 export class TokenDto {
   @IsNotEmpty()
   @ApiProperty()
-  token: string
+  token: string;
 }
 
 export class UsernameDto {
   @IsNotEmpty()
   @IsLowercase()
   @ApiProperty()
-  username: string
+  username: string;
 }
 
 export class GoogleAuthDto {
   @IsNotEmpty()
-  googleId: string
+  googleId: string;
 
   @IsNotEmpty()
-  profile: TokenPayload
+  profile: TokenPayload;
 }
