@@ -24,6 +24,8 @@ export class AuthenticationService {
   async signUp(params: CreateUserDto): Promise<User> {
     const { username, email, password } = params;
 
+    if (!username || !email || !password) return;
+
     const isExisting = await this.userModel.findOne({
       $or: [{ email }, { username }],
     });
@@ -73,6 +75,10 @@ export class AuthenticationService {
 
   async setUsername(params: SetUsernameDto) {
     const { newUsername } = params;
+
+    if (!newUsername)
+      throw new BadRequestException('Invalid set username request');
+
     const userExists = await this.userModel.findOne({ username: newUsername });
 
     if (userExists) throw new BadRequestException('Username is not available');
