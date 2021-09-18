@@ -2,6 +2,7 @@ import { env } from '~common/constants';
 
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { NestFactory } from '@nestjs/core';
+import * as morgan from 'morgan';
 
 import { AppModule } from './app.module';
 
@@ -39,6 +40,20 @@ export default function setupSwagger(app): void {
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
+  app.use(
+    morgan(function (tokens, req, res) {
+      return [
+        tokens.method(req, res),
+        tokens.url(req, res),
+        tokens.status(req, res),
+        tokens.res(req, res, 'content-length'),
+        '-',
+        tokens['response-time'](req, res),
+        'ms',
+      ].join(' ');
+    }),
+  );
 
   setupSwagger(app);
 

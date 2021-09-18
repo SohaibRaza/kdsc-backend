@@ -24,7 +24,8 @@ export class AuthenticationService {
   async signUp(params: CreateUserDto): Promise<User> {
     const { username, email, password } = params;
 
-    if (!username || !email || !password) return;
+    if (!username || !email || !password)
+      throw new BadRequestException('Invalid Data');
 
     const isExisting = await this.userModel.findOne({
       $or: [{ email }, { username }],
