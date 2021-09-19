@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
-import { ChildrenSchema } from '~src/db/children';
+import { ChildrenSchema } from '~src/db';
 
 import { ChildrenService } from './children.service';
 import { ChildrenController } from './children.controller';

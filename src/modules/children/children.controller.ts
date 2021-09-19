@@ -34,7 +34,7 @@ export class ChildrenController {
   @Patch(':slug')
   async update(
     @Param('slug') slug: string,
-    @Body() updateChildDto: UpdateChildDto,
+    @Body() updateChildDto: CreateChildDto,
   ) {
     return await this.childrenService.update(slug, updateChildDto);
   }

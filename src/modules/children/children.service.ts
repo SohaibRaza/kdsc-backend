@@ -34,16 +34,15 @@ export class ChildrenService {
 
   async update(
     slug: string,
-    updateChildDto: CreateChildDto,
+    updateChildData: CreateChildDto,
   ): Promise<Children> {
-    const isPresent = await this.ChildModel.findOne({ slug });
+    const child = await this.ChildModel.findOne({ slug });
 
-    if (!isPresent) throw new NotFoundException('Not record found.');
+    if (!child) throw new NotFoundException('Not record found.');
 
-    const child = new this.ChildModel(updateChildDto);
-    child.save();
+    const updatedChild = await child.update(updateChildData);
 
-    return child;
+    return updatedChild;
   }
 
   async remove(slug: string): Promise<Children> {

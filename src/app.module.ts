@@ -5,6 +5,7 @@ import { env } from '~common/constants';
 import { UsersModule } from './modules/users/users.module';
 import { AuthenticationModule } from './modules/authentication/authentication.module';
 import { ChildrenModule } from './modules/children/children.module';
+import { TherapistModule } from './modules/therapist/therapist.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { ChildrenModule } from './modules/children/children.module';
       useFindAndModify: false,
     }),
     ChildrenModule,
+    TherapistModule,
   ],
 })
 export class AppModule {}

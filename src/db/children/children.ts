@@ -2,12 +2,13 @@ import * as mongoose from 'mongoose';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { generateSlug } from '~src/lib';
 import { ApiProperty } from '@nestjs/swagger';
+import { ScheduledSessions, Therapist } from '..';
 type Relations = 'parent' | 'sibling' | 'uncle/aunt' | 'other_relative';
 
 type Therapies = 'OT' | 'PT' | 'ST';
 
 @Schema()
-class GuardianDetails {
+export class GuardianDetails {
   @Prop()
   @ApiProperty()
   fullName: string;
@@ -27,7 +28,38 @@ class GuardianDetails {
   @ApiProperty()
   @Prop()
   address: string;
+
+  @ApiProperty()
+  @Prop({ default: generateSlug, permanent: true, unique: true })
+  slug: string;
 }
+
+export const GuardianDetailsSchema =
+  SchemaFactory.createForClass(GuardianDetails);
+
+@Schema({
+  timestamps: true,
+})
+export class TherapistRemarks {
+  @ApiProperty()
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Therapist' })
+  therapist: Therapist;
+
+  @ApiProperty()
+  @Prop({})
+  title: string;
+
+  @ApiProperty()
+  @Prop()
+  description: string;
+
+  @ApiProperty()
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'ScheduledSessions' })
+  session: ScheduledSessions;
+}
+
+export const TherapistRemarksSchema =
+  SchemaFactory.createForClass(TherapistRemarks);
 
 @Schema({
   timestamps: true,
@@ -48,7 +80,7 @@ export class Children {
   dateOfBirth: Date;
 
   @ApiProperty()
-  @Prop()
+  @Prop({ type: GuardianDetailsSchema })
   guardianDetails: GuardianDetails;
 
   @ApiProperty({ default: 'waiting' })
@@ -62,6 +94,10 @@ export class Children {
   @ApiProperty()
   @Prop()
   enrolledTherapies?: Therapies[];
+
+  @ApiProperty()
+  @Prop({ type: [TherapistRemarksSchema] })
+  remarksByDoctors: TherapistRemarks[];
 }
 
 export const ChildrenSchema = SchemaFactory.createForClass(Children);
