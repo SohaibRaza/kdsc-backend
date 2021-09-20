@@ -1,6 +1,11 @@
-<p align="center">
+<!-- <p align="center">
 <img src="https://user-images.githubusercontent.com/7778803/133946229-ee266524-10ba-4e1e-9a73-959a2231ed19.png" size="80" />
-</p>
+</p> -->
+
+# KDS ERP  -----------  ``` Must Read ```
+
+<br />
+<br />
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/7778803/133667983-58a8451f-de59-46c7-b216-ef42004705b3.png" width="64" /> &nbsp;&nbsp;
@@ -11,9 +16,8 @@
 <img src="https://user-images.githubusercontent.com/7778803/133668434-1f155632-49fb-4182-b740-3b8e8846d7ca.png" width="64" /> &nbsp;&nbsp;
 </p>
 
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+<br />
+<br />
 
 ## Installation
 
