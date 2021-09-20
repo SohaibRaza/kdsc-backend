@@ -2,7 +2,7 @@
 <img src="https://user-images.githubusercontent.com/7778803/133946229-ee266524-10ba-4e1e-9a73-959a2231ed19.png" size="80" />
 </p> -->
 
-# KDS ERP  -----------  ``` Must Read ```
+# KDS ERP  -----------  ``` Must Read 👇 ```
 
 <br />
 <br />
