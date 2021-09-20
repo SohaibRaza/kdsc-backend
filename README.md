@@ -63,7 +63,7 @@ $ npm run test:cov
 
 ---------------------------------
 
-> ## Good programming practices. 
+## Good programming practices. 
 An over view of industries best coding practices, I used to structure this project. 
 1. Structured my solution by self-contained and reusable components. [[Ref.]](https://github.com/goldbergyoni/nodebestpractices/blob/master/sections/projectstructre/breakintcomponents.md)
 2. Layered components
@@ -88,29 +88,33 @@ This projects has [Screaming Architecture](https://8thlight.com/blog/uncle-bob/2
 > ### Project Structure
 ```
 - src
-  - db
-    - schemas
-  - common
-  - lib
-  - decorators
-  - emailTemplates
-  - guards // global guards
-  - modules // core modules of the application
-    - auth
-      - auth.controllers.ts
-      - auth.controller.spec.ts // controller tests
-      - auth.services.ts
-      - auth.services.spec.ts // services tests
-      - auth.module.ts
-    - therapist
-    - children
-    - therapySchedules
-    - payment
-    - users
-  - types // global types
+|  - db
+|  |  - schemas
+|  - common
+|  - lib
+|  - decorators
+|  - emailTemplates
+|  - guards // global guards
+|  - modules // core modules of the application
+|  |  - auth
+|  |  |  - dto // data transfer objects
+|  |  |  |  - aut.dto.ts
+|  |  |  - entities
+|  |  |  |  - auth.entity.ts
+|  |  |  - auth.controllers.ts
+|  |  |  - auth.controller.spec.ts // controller tests
+|  |  |  - auth.services.ts
+|  |  |  - auth.services.spec.ts // services tests
+|  |  |  - auth.module.ts
+|  |  - therapist
+|  |  - children
+|  |  - therapySchedules
+|  |  - payment
+|  |  - users
+|  - types // global types
 
 ```
 
 ## License
 
-Nest is [MIT licensed](LICENSE).
+KDSP ERP is [MIT licensed](LICENSE).
